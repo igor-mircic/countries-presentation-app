@@ -2,8 +2,8 @@
 
 Projekat koristi:
 
-Angular v12.0.5
-Node v14.17.1
+- Angular v12.0.5
+- Node v14.17.1
 
 ## Opis
 

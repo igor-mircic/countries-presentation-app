@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+  <mat-label>Search for a country...</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let region of regions" [value]="regions">
+      {{ region }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

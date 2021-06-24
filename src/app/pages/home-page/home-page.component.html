@@ -1,12 +1,17 @@
-<app-country-name-filter></app-country-name-filter>
-<app-country-region-filter></app-country-region-filter>
-<div class="country-list">
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
-  <app-country-card></app-country-card>
+<div class="container">
+  <div class="filters" fxLayout="row" fxLayout.xs="column" fxLayoutGap="auto">
+    <app-country-name-filter></app-country-name-filter>
+    <app-country-region-filter></app-country-region-filter>
+  </div>
+  <div
+    class="cards"
+    fxLayout="row wrap"
+    fxLayoutGap="32px grid"
+    fxLayoutAlign="center"
+  >
+    <app-country-card
+      fxFlex="1 1 250px"
+      *ngFor="let i of [].constructor(20)"
+    ></app-country-card>
+  </div>
 </div>

@@ -1,0 +1,8 @@
+:host {
+  & .container {
+    margin: 0 16px;
+  }
+  & .filters {
+    margin-top: 16px;
+  }
+}

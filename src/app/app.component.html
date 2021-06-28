@@ -1,11 +1,11 @@
 <mat-toolbar>
   <span>{{ title }}</span>
   <span class="spacer"></span>
-  <button mat-button>
-    <mat-icon aria-hidden="false" aria-label="Example home icon"
-      >dark_mode</mat-icon
-    >
-    Dark Mode
+  <button mat-button (click)="toggleTheme()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">
+      {{ isDarkTheme ? "light_mode" : "dark_mode" }}
+    </mat-icon>
+    {{ isDarkTheme ? "Light" : "Dark" }} Mode
   </button>
 </mat-toolbar>
 

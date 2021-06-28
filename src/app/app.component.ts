@@ -15,9 +15,7 @@ export class AppComponent {
     this.isDarkTheme = !this.isDarkTheme;
     if (this.isDarkTheme) {
       this._renderer.addClass(document.body, 'theme-dark');
-      this._renderer.removeClass(document.body, 'theme-light');
     } else {
-      this._renderer.addClass(document.body, 'theme-light');
       this._renderer.removeClass(document.body, 'theme-dark');
     }
   }

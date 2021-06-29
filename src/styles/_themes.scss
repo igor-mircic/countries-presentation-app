@@ -1,0 +1,110 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+// Light Theme
+$light-primary-palette: mat.define-palette(mat.$blue-grey-palette);
+$light-accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-warn-palette: mat.define-palette(mat.$red-palette);
+
+$light-background-palette: (
+  status-bar: #e0e0e0,
+  app-bar: #f5f5f5,
+  background: #fafafa,
+  hover: rgba(black, 0.04),
+  card: white,
+  dialog: white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: rgba(black, 0.12),
+  selected-button: #e0e0e0,
+  selected-disabled-button: #bdbdbd,
+  disabled-button-toggle: #eeeeee,
+  unselected-chip: #e0e0e0,
+  disabled-list-option: #eeeeee,
+  tooltip: #616161,
+);
+
+$light-foreground-palette: (
+  base: black,
+  divider: rgba(black, 0.12),
+  dividers: rgba(black, 0.12),
+  disabled: rgba(black, 0.12),
+  disabled-button: rgba(black, 0.26),
+  disabled-text: rgba(black, 0.12),
+  elevation: black,
+  hint-text: rgba(black, 0.12),
+  secondary-text: rgba(black, 0.12),
+  icon: rgba(black, 0.54),
+  icons: rgba(black, 0.54),
+  text: rgba(black, 0.87),
+  slider-min: rgba(black, 0.87),
+  slider-off: rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+$light-theme: (
+  primary: $light-primary-palette,
+  accent: $light-accent-palette,
+  warn: $light-warn-palette,
+  is-dark: false,
+  foreground: $light-foreground-palette,
+  background: $light-background-palette,
+);
+
+@include mat.all-component-themes($light-theme);
+
+// dark Theme
+$dark-primary-palette: mat.define-palette(mat.$blue-grey-palette);
+$dark-accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$dark-warn-palette: mat.define-palette(mat.$red-palette);
+
+$dark-background-palette: (
+  status-bar: #e0e0e0,
+  app-bar: #f5f5f5,
+  background: #fafafa,
+  hover: rgba(black, 0.04),
+  card: white,
+  dialog: white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: rgba(black, 0.12),
+  selected-button: #e0e0e0,
+  selected-disabled-button: #bdbdbd,
+  disabled-button-toggle: #eeeeee,
+  unselected-chip: #e0e0e0,
+  disabled-list-option: #eeeeee,
+  tooltip: #616161,
+);
+
+$dark-foreground-palette: (
+  base: black,
+  divider: rgba(black, 0.12),
+  dividers: rgba(black, 0.12),
+  disabled: rgba(black, 0.12),
+  disabled-button: rgba(black, 0.26),
+  disabled-text: rgba(black, 0.12),
+  elevation: black,
+  hint-text: rgba(black, 0.12),
+  secondary-text: rgba(black, 0.12),
+  icon: rgba(black, 0.54),
+  icons: rgba(black, 0.54),
+  text: rgba(black, 0.87),
+  slider-min: rgba(black, 0.87),
+  slider-off: rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+$dark-theme: (
+  primary: $dark-primary-palette,
+  accent: $dark-accent-palette,
+  warn: $dark-warn-palette,
+  is-dark: false,
+  foreground: $dark-foreground-palette,
+  background: $dark-background-palette,
+);
+
+.theme-dark {
+  @include mat.all-component-themes($dark-theme);
+}

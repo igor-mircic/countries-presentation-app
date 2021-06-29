@@ -4,8 +4,14 @@
 @include mat.core();
 
 // Light Theme
-$light-primary-palette: mat.define-palette(mat.$blue-grey-palette);
-$light-accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-primary-palette: mat.define-palette($grey-palette, $default: 700);
+$light-accent-palette: mat.define-palette(
+  $grey-palette,
+  A100,
+  A200,
+  A400,
+  A700
+);
 $light-warn-palette: mat.define-palette(mat.$red-palette);
 
 $light-theme: (
@@ -20,8 +26,14 @@ $light-theme: (
 @include mat.all-component-themes($light-theme);
 
 // dark Theme
-$dark-primary-palette: mat.define-palette(mat.$blue-grey-palette);
-$dark-accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$dark-primary-palette: mat.define-palette($blue-grey-palette, $default: 100);
+$dark-accent-palette: mat.define-palette(
+  $blue-grey-palette,
+  A100,
+  A200,
+  A400,
+  A700
+);
 $dark-warn-palette: mat.define-palette(mat.$red-palette);
 
 $dark-theme: (

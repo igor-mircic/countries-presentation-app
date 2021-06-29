@@ -3,7 +3,7 @@
 
 @include mat.core();
 
-// Light Theme
+// Define Light Theme
 $light-primary-palette: mat.define-palette($grey-palette, $default: 700);
 $light-accent-palette: mat.define-palette(
   $grey-palette,
@@ -23,9 +23,7 @@ $light-theme: (
   background: $light-background-palette,
 );
 
-@include mat.all-component-themes($light-theme);
-
-// dark Theme
+// Define Dark Theme
 $dark-primary-palette: mat.define-palette($blue-grey-palette, $default: 100);
 $dark-accent-palette: mat.define-palette(
   $blue-grey-palette,
@@ -45,6 +43,11 @@ $dark-theme: (
   background: $dark-background-palette,
 );
 
+// Apply Themes
+@include mat.all-component-themes($light-theme);
+
 .theme-dark {
   @include mat.all-component-themes($dark-theme);
 }
+
+@include mat.core($app-typography);

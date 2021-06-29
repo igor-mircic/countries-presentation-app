@@ -1,0 +1,7 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$app-typography: mat.define-typography-config(
+  $font-family: "Nunito Sans",
+);

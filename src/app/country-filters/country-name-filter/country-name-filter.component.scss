@@ -17,3 +17,13 @@ input {
   padding-top: 0.1em;
   font-size: 1.1em;
 }
+
+// Ovi stilovi ne rade kad su definisani u ovom fajlu, a iz styles.scss fajla rade!
+// .mat-form-field-underline {
+//   height: 0px !important;
+// }
+
+// .mat-form-field-label-wrapper {
+//   top: 0 !important;
+//   padding-top: 0 !important;
+// }

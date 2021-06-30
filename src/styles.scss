@@ -14,3 +14,18 @@ body {
 .spacer {
   flex: 1 1 auto;
 }
+
+// Ovi stilovi mozda ne rade iz kompoente!!!
+// .mat-form-field-underline {
+//   height: 0px !important;
+// }
+
+// .mat-form-field-label-wrapper {
+//   top: 0 !important;
+//   padding-top: 0 !important;
+// }
+
+.cdk-overlay-pane {
+  min-width: 168px !important;
+  transform: translateX(-11px) translateY(28px) !important;
+}

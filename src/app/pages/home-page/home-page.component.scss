@@ -1,8 +1,6 @@
-:host {
-  & .container {
-    margin: 0 16px;
-  }
-  & .filters {
-    margin-top: 16px;
-  }
+.container {
+  margin: 0 16px;
+}
+.filters {
+  margin: 3em 0 2em 0;
 }

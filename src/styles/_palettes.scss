@@ -6,7 +6,7 @@ $dark-disabled-text: rgba(black, 0.38);
 $dark-dividers: rgba(black, 0.12);
 $dark-focused: rgba(black, 0.12);
 $light-primary-text: white;
-$light-secondary-text: rgba(white, 0.7);
+$light-secondary-text: white;
 $light-disabled-text: rgba(white, 0.5);
 $light-dividers: rgba(white, 0.12);
 $light-focused: rgba(white, 0.12);
@@ -165,7 +165,7 @@ $dark-background-palette: (
 );
 
 $dark-foreground-palette: (
-  base: white,
+  base: map.get($blue-grey-palette, 200),
   divider: $light-dividers,
   dividers: $light-dividers,
   disabled: $light-disabled-text,

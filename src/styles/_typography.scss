@@ -4,4 +4,17 @@
 
 $app-typography: mat.define-typography-config(
   $font-family: "Nunito Sans",
+  $display-4:    mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3:    mat.define-typography-level(56px, 56px, 300, $letter-spacing: -0.02em),
+  $display-2:    mat.define-typography-level(45px, 48px, 300, $letter-spacing: -0.005em),
+  $display-1:    mat.define-typography-level(34px, 40px, 300),
+  $headline:     mat.define-typography-level(24px, 32px, 300),
+  $title:        mat.define-typography-level(20px, 32px, 800),
+  $subheading-2: mat.define-typography-level(16px, 28px, 300),
+  $subheading-1: mat.define-typography-level(15px, 24px, 300),
+  $body-2:       mat.define-typography-level(14px, 24px, 800),
+  $body-1:       mat.define-typography-level(14px, 20px, 300),
+  $caption:      mat.define-typography-level(12px, 20px, 300),
+  $button:       mat.define-typography-level(14px, 14px, 600),
+  $input:        mat.define-typography-level(inherit, 1.125, 300)
 );

@@ -8,11 +8,10 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
 }
-
-.spacer {
-  flex: 1 1 auto;
+strong {
+  font-weight: 600;
 }
 
 // Ovi stilovi ne rade iz kompoente, a iz ovo fajla hoce!!!
@@ -26,6 +25,11 @@ body {
 // }
 
 .cdk-overlay-pane {
-  min-width: 168px !important;
-  transform: translateX(-11px) translateY(28px) !important;
+  min-width: 135px !important;
+  transform: translateX(-22px) translateY(28px) !important;
+}
+
+.mat-form-field-flex {
+  padding-left: 1.8em !important;
+  padding-right: 1.5em !important;
 }

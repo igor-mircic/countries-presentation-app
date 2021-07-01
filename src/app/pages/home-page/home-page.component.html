@@ -4,14 +4,21 @@
     <app-country-region-filter></app-country-region-filter>
   </div>
   <div
-    class="cards"
+    class="card-grid"
     fxLayout="row wrap"
-    fxLayoutGap="32px grid"
-    fxLayoutAlign="center"
+    fxLayoutGap.xs="30px grid"
+    fxLayoutGap.sm="30px grid"
+    fxLayoutGap.md="50px grid"
+    fxLayoutGap.lg="70px grid"
   >
-    <app-country-card
-      fxFlex="1 1 250px"
+    <div
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex.md="33%"
+      fxFlex.lg="25%"
       *ngFor="let i of [].constructor(20)"
-    ></app-country-card>
+    >
+      <app-country-card></app-country-card>
+    </div>
   </div>
 </div>

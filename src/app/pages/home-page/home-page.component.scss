@@ -1,6 +1,18 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
 .container {
   margin: 0 16px;
+  max-width: 1200px;
+}
+.card-container {
+  width: 100vw;
 }
 .filters {
   margin: 3em 0 2em 0;
+}
+
+mat-grid-list {
+  height: 400px;
 }

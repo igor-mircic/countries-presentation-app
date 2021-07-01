@@ -1,12 +1,14 @@
 <mat-toolbar>
-  <span>{{ title }}</span>
-  <span class="spacer"></span>
-  <button mat-button (click)="toggleIsDark()">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">
-      {{ isDarkTheme ? "dark_mode" : "light_mode" }}
-    </mat-icon>
-    {{ isDarkTheme ? "Dark" : "Light" }} Mode
-  </button>
+  <div class="toolbar-content">
+    <span>{{ title }}</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="toggleIsDark()">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+        {{ isDarkTheme ? "dark_mode" : "light_mode" }}
+      </mat-icon>
+      {{ isDarkTheme ? "Dark" : "Light" }} Mode
+    </button>
+  </div>
 </mat-toolbar>
 
 <app-home-page></app-home-page>

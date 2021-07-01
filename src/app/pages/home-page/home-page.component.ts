@@ -1,5 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ICountry } from 'src/app/country';
 import { CountriesApiService } from 'src/app/shared/countries-api.service';
 
 @Component({
@@ -10,13 +11,17 @@ import { CountriesApiService } from 'src/app/shared/countries-api.service';
 export class HomePageComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   errorMessage: string = '';
-  countries: any[] = [];
+  countries: ICountry[] = [];
+  filteredCountries: ICountry[] = [];
 
   constructor(private countriesApiService: CountriesApiService) {}
 
   ngOnInit(): void {
     this.sub = this.countriesApiService.getAllCountries().subscribe({
-      next: (countries) => (this.countries = countries),
+      next: (countries) => {
+        this.countries = countries;
+        this.filteredCountries = countries;
+      },
       error: (err) => (this.errorMessage = err),
     });
   }
@@ -26,6 +31,13 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   updateRegion(region: string) {
-    console.log('Region updated:', region);
+    if (region !== '') {
+      this.filteredCountries = this.countries.filter(
+        (country) => country.region === region
+      );
+      console.log(region);
+    } else {
+      this.filteredCountries = this.countries;
+    }
   }
 }

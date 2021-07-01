@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ICountry } from '../country';
 
 @Component({
   selector: 'app-country-card',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./country-card.component.scss'],
 })
 export class CountryCardComponent implements OnInit {
-  @Input() country!: any;
+  @Input() country!: ICountry;
 
   constructor() {}
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-interface Region {
+interface IRegion {
   value: string;
   viewValue: string;
 }
@@ -11,18 +11,19 @@ interface Region {
   styleUrls: ['./country-region-filter.component.scss'],
 })
 export class CountryRegionFilterComponent implements OnInit {
-  regions: Region[] = [
-    { value: 'africa', viewValue: 'Africa' },
-    { value: 'americas', viewValue: 'Americas' },
-    { value: 'asia', viewValue: 'Asia' },
-    { value: 'europe', viewValue: 'Europe' },
-    { value: 'oceania', viewValue: 'Oceania' },
+  allRegions: IRegion = { value: '', viewValue: 'All' };
+  regions: IRegion[] = [
+    { value: 'Africa', viewValue: 'Africa' },
+    { value: 'Americas', viewValue: 'Americas' },
+    { value: 'Asia', viewValue: 'Asia' },
+    { value: 'Europe', viewValue: 'Europe' },
+    { value: 'Oceania', viewValue: 'Oceania' },
   ];
-  selectedRegion!: Region;
+  selectedRegion!: IRegion;
 
   @Output() regionChangedEvent = new EventEmitter<string>();
 
-  changeRegion(region: Region) {
+  changeRegion(region: IRegion) {
     this.regionChangedEvent.emit(region.value);
   }
 

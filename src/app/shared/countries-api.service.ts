@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ICountry } from '../country';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class CountriesApiService {
   private url = 'https://restcountries.eu/rest/v2/all';
   constructor(private http: HttpClient) {}
-  getAllCountries(): Observable<any[]> {
-    return this.http.get<any[]>(this.url).pipe(
+  getAllCountries(): Observable<ICountry[]> {
+    return this.http.get<ICountry[]>(this.url).pipe(
       // tap((data) => console.log('All', JSON.stringify(data))),
       catchError(this.handleError)
     );

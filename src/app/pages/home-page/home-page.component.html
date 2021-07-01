@@ -20,7 +20,7 @@
       fxFlex.sm="50%"
       fxFlex.md="33%"
       fxFlex.lg="25%"
-      *ngFor="let country of this.countries"
+      *ngFor="let country of this.filteredCountries"
     >
       <app-country-card [country]="country"></app-country-card>
     </div>

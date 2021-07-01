@@ -12,7 +12,7 @@ export class CountriesApiService {
   constructor(private http: HttpClient) {}
   getAllCountries(): Observable<any[]> {
     return this.http.get<any[]>(this.url).pipe(
-      tap((data) => console.log('All', JSON.stringify(data))),
+      // tap((data) => console.log('All', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }

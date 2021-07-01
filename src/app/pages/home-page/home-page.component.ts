@@ -8,8 +8,8 @@ import { CountriesApiService } from 'src/app/shared/countries-api.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
-  errorMessage: string = '';
   sub!: Subscription;
+  errorMessage: string = '';
   countries: any[] = [];
 
   constructor(private countriesApiService: CountriesApiService) {}
@@ -23,5 +23,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+  }
+
+  updateRegion(region: string) {
+    console.log('Region updated:', region);
   }
 }

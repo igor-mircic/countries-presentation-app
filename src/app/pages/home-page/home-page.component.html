@@ -1,7 +1,9 @@
 <div class="container">
   <div class="filters" fxLayout="row" fxLayout.xs="column" fxLayoutGap="auto">
     <app-country-name-filter></app-country-name-filter>
-    <app-country-region-filter></app-country-region-filter>
+    <app-country-region-filter
+      (regionChangedEvent)="updateRegion($event)"
+    ></app-country-region-filter>
   </div>
   <div
     class="card-grid"
@@ -18,9 +20,9 @@
       fxFlex.sm="50%"
       fxFlex.md="33%"
       fxFlex.lg="25%"
-      *ngFor="let i of [].constructor(20)"
+      *ngFor="let country of this.countries"
     >
-      <app-country-card></app-country-card>
+      <app-country-card [country]="country"></app-country-card>
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 <div class="container">
   <div class="filters" fxLayout="row" fxLayout.xs="column" fxLayoutGap="auto">
-    <app-country-name-filter></app-country-name-filter>
+    <app-country-name-filter
+      (nameChangedEvent)="updateName($event)"
+    ></app-country-name-filter>
     <app-country-region-filter
       (regionChangedEvent)="updateRegion($event)"
     ></app-country-region-filter>

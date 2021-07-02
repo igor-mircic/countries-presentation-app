@@ -35,9 +35,15 @@ export class HomePageComponent implements OnInit, OnDestroy {
       this.filteredCountries = this.countries.filter(
         (country) => country.region === region
       );
-      console.log(region);
     } else {
       this.filteredCountries = this.countries;
     }
+  }
+
+  updateName(name: string) {
+    name = name.toLowerCase();
+    this.filteredCountries = this.countries.filter((country) =>
+      country.name.toLowerCase().includes(name)
+    );
   }
 }

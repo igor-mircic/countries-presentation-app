@@ -6,6 +6,12 @@
       >
       <span class="label-text">Search for a country...</span>
     </mat-label>
-    <input matInput type="text" />
+    <input
+      [(ngModel)]="countryName"
+      (change)="nameChanged()"
+      matInput
+      type="text"
+      name="country-name"
+    />
   </mat-form-field>
 </form>

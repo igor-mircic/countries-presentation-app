@@ -23,7 +23,7 @@ export class CountryRegionFilterComponent implements OnInit {
 
   @Output() regionChangedEvent = new EventEmitter<string>();
 
-  changeRegion(region: IRegion) {
+  regionChanged(region: IRegion) {
     this.regionChangedEvent.emit(region.value);
   }
 

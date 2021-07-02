@@ -9,11 +9,14 @@ import { ICountry } from '../country';
   providedIn: 'root',
 })
 export class CountriesApiService {
-  private url = 'https://restcountries.eu/rest/v2/all';
+  private url = 'https://restcountries.eu/rest/v2/';
+  private allCountrysRequest =
+    'all?fields=name;nativeName;population;region;subregion;capital;flag;topLevelDomain;currencies;languages;borders;';
   constructor(private http: HttpClient) {}
   getAllCountries(): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(this.url).pipe(
-      // tap((data) => console.log('All', JSON.stringify(data))),
+    const url = this.url + this.allCountrysRequest;
+    return this.http.get<ICountry[]>(url).pipe(
+      // tap((data) => console.log('All', data)),
       catchError(this.handleError)
     );
   }

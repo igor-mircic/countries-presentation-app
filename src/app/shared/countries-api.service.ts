@@ -9,17 +9,29 @@ import { ICountry } from '../country';
   providedIn: 'root',
 })
 export class CountriesApiService {
-  private url = 'https://restcountries.eu/rest/v2/';
-  private allCountrysRequest =
-    'all?fields=name;nativeName;population;region;subregion;capital;flag;topLevelDomain;currencies;languages;borders;';
+  private baseUrl = 'https://restcountries.eu/rest/v2/';
+  private requestFields =
+    'fields=name;nativeName;population;region;subregion;capital;flag;topLevelDomain;currencies;languages;borders;';
+
   constructor(private http: HttpClient) {}
+
   getAllCountries(): Observable<ICountry[]> {
-    const url = this.url + this.allCountrysRequest;
+    const url = this.baseUrl + 'all?' + this.requestFields;
     return this.http.get<ICountry[]>(url).pipe(
       // tap((data) => console.log('All', data)),
       catchError(this.handleError)
     );
   }
+
+  getCountryByName(name: string): Observable<ICountry[]> {
+    const url = this.baseUrl + 'name/' + name + '?fullText=true';
+    // console.log(url);
+    return this.http.get<ICountry[]>(url).pipe(
+      // tap((data) => console.log('CountryByName: ', data)),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

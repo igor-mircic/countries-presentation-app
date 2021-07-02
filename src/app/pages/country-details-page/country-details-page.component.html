@@ -1,1 +1,18 @@
-<p>country-details-page works!</p>
+<img [src]="country?.flag" />
+<h1>{{ country?.name }}</h1>
+<div class="details">
+  <p><strong>Native Name: </strong> {{ country?.nativeName }}</p>
+  <p><strong>Population: </strong> {{ country?.population }}</p>
+  <p><strong>Region: </strong> {{ country?.region }}</p>
+  <p><strong>Sub Region: </strong> {{ country?.subregion }}</p>
+  <p><strong>Capital: </strong> {{ country?.capital }}</p>
+  <p><strong>Top Level Domain: </strong> {{ country?.topLevelDomain }}</p>
+  <p><strong>Currencies: </strong> {{ country?.currencies }}</p>
+  <p><strong>Languages: </strong> {{ country?.languages }}</p>
+</div>
+<div class="border-countres">
+  <p><strong>Border Countries</strong>{{ country?.borders }}</p>
+</div>
+<button mat-raised-button color="primary" [routerLink]="['/home']">
+  <-back
+</button>

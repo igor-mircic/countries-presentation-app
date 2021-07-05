@@ -8,13 +8,12 @@
   <p><strong>Capital: </strong> {{ country?.capital }}</p>
   <p><strong>Top Level Domain: </strong> {{ country?.topLevelDomain }}</p>
   <p>
-    <strong
-      >Currencies:
-      <span *ngFor="let currency of country?.currencies; let i = index">
-        {{ currency.name }}
-        <span *ngIf="i < country.currencies.length - 1">,</span>
-      </span></strong
-    >
+    <strong>Currencies: </strong>
+
+    <span *ngFor="let currency of country?.currencies; let i = index">
+      {{ currency.name }}
+      <span *ngIf="i < country.currencies.length - 1">,</span>
+    </span>
   </p>
   <p>
     <strong>Languages: </strong>

@@ -7,8 +7,22 @@
   <p><strong>Sub Region: </strong> {{ country?.subregion }}</p>
   <p><strong>Capital: </strong> {{ country?.capital }}</p>
   <p><strong>Top Level Domain: </strong> {{ country?.topLevelDomain }}</p>
-  <p><strong>Currencies: </strong> {{ country?.currencies }}</p>
-  <p><strong>Languages: </strong> {{ country?.languages }}</p>
+  <p>
+    <strong
+      >Currencies:
+      <span *ngFor="let currency of country?.currencies; let i = index">
+        {{ currency.name }}
+        <span *ngIf="i < country.currencies.length - 1">,</span>
+      </span></strong
+    >
+  </p>
+  <p>
+    <strong>Languages: </strong>
+    <span *ngFor="let language of country?.languages; let i = index">
+      {{ language.name }}
+      <span *ngIf="i < country.languages.length - 1">,</span>
+    </span>
+  </p>
 </div>
 <div class="border-countres">
   <p><strong>Border Countries</strong>{{ country?.borders }}</p>
@@ -16,3 +30,5 @@
 <button mat-raised-button color="primary" [routerLink]="['/home']">
   <-back
 </button>
+
+<h2>{{ country | json }}</h2>

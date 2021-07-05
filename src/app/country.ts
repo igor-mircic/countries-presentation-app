@@ -9,7 +9,7 @@ export interface ICountry {
   topLevelDomain: string;
   currencies: ICurrency[];
   languages: ILanguage[];
-  borders: string;
+  borders: string[];
 }
 
 interface ICurrency {

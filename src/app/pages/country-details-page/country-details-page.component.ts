@@ -9,10 +9,11 @@ import { CountriesApiService } from 'src/app/shared/countries-api.service';
   styleUrls: ['./country-details-page.component.scss'],
 })
 export class CountryDetailsPageComponent implements OnInit {
-  sub!: Subscription;
+  countrySub!: Subscription;
+  borderSub!: Subscription;
   errorMessage: string = '';
   country!: ICountry;
-  borderCountrys!: ICountry[];
+  borderCountries!: ICountry[];
 
   constructor(
     private countriesApiService: CountriesApiService,
@@ -20,14 +21,42 @@ export class CountryDetailsPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const contryName = String(this.route.snapshot.paramMap.get('name'));
-    this.sub = this.countriesApiService.getCountryByName(contryName).subscribe({
-      next: (country) => (this.country = country[0]),
-      error: (err) => (this.errorMessage = err),
+    let contryName!: string;
+    this.route.params.subscribe((params) => {
+      contryName = params?.name;
+      const country: ICountry | undefined = this.borderCountries?.find(
+        (c) => c.name == contryName
+      );
+      if (country !== undefined) this.changeCountry(country);
     });
+    this.countrySub = this.countriesApiService
+      .getCountryByName(contryName)
+      .subscribe({
+        next: (country) => {
+          this.country = country[0];
+          this.getBorderCountries(country[0]);
+        },
+        error: (err) => (this.errorMessage = err),
+      });
+  }
+
+  changeCountry(country: ICountry) {
+    this.country = country;
+    this.getBorderCountries(country);
+  }
+
+  getBorderCountries(country: ICountry) {
+    const codes = country.borders.join(';');
+    this.borderSub = this.countriesApiService
+      .getCountriesByCode(codes)
+      .subscribe({
+        next: (country) => (this.borderCountries = country),
+        error: (err) => (this.errorMessage = err),
+      });
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.countrySub.unsubscribe();
+    this.borderSub.unsubscribe();
   }
 }

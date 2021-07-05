@@ -32,6 +32,15 @@ export class CountriesApiService {
     );
   }
 
+  getCountriesByCode(codes: string): Observable<ICountry[]> {
+    const url = this.baseUrl + 'alpha?codes=' + codes;
+    // console.log(url);
+    return this.http.get<ICountry[]>(url).pipe(
+      // tap((data) => console.log('getCountriesByCode', data)),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

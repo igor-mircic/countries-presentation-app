@@ -48,7 +48,16 @@
         </div>
       </div>
       <div class="border-countres">
-        <p><strong>Border Countries</strong>{{ country?.borders }}</p>
+        <p><strong>Border Countries: </strong></p>
+        <span *ngFor="let borderCountry of borderCountries">
+          <button
+            mat-raised-button
+            [routerLink]="['/details', borderCountry.name]"
+            routerLinkActive="active"
+          >
+            {{ borderCountry.name }}
+          </button>
+        </span>
       </div>
     </div>
   </div>

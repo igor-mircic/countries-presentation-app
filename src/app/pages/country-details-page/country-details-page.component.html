@@ -21,7 +21,10 @@
       >
         <div class="details__col-1">
           <p><strong>Native Name: </strong> {{ country?.nativeName }}</p>
-          <p><strong>Population: </strong> {{ country?.population }}</p>
+          <p>
+            <strong>Population: </strong>
+            {{ country?.population | number }}
+          </p>
           <p><strong>Region: </strong> {{ country?.region }}</p>
           <p><strong>Sub Region: </strong> {{ country?.subregion }}</p>
           <p><strong>Capital: </strong> {{ country?.capital }}</p>
@@ -48,16 +51,20 @@
         </div>
       </div>
       <div class="border-countres">
-        <p><strong>Border Countries: </strong></p>
-        <span *ngFor="let borderCountry of borderCountries">
-          <button
-            mat-raised-button
-            [routerLink]="['/details', borderCountry.name]"
-            routerLinkActive="active"
-          >
-            {{ borderCountry.name }}
-          </button>
-        </span>
+        <div fxLayout="row wrap" fxLayoutGap="8px grid">
+          <p class="border-countres__title">
+            <strong>Border Countries:</strong>
+          </p>
+          <div *ngFor="let borderCountry of borderCountries">
+            <button
+              mat-raised-button
+              [routerLink]="['/details', borderCountry.name]"
+              routerLinkActive="active"
+            >
+              {{ borderCountry.name }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

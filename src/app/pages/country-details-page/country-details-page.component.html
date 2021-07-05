@@ -1,33 +1,55 @@
-<img [src]="country?.flag" />
-<h1>{{ country?.name }}</h1>
-<div class="details">
-  <p><strong>Native Name: </strong> {{ country?.nativeName }}</p>
-  <p><strong>Population: </strong> {{ country?.population }}</p>
-  <p><strong>Region: </strong> {{ country?.region }}</p>
-  <p><strong>Sub Region: </strong> {{ country?.subregion }}</p>
-  <p><strong>Capital: </strong> {{ country?.capital }}</p>
-  <p><strong>Top Level Domain: </strong> {{ country?.topLevelDomain }}</p>
-  <p>
-    <strong>Currencies: </strong>
+<div class="container">
+  <button class="back-button" mat-raised-button [routerLink]="['/home']">
+    <mat-icon aria-hidden="false" aria-label="Back button">arrow_back</mat-icon>
+    Back
+  </button>
+  <div
+    class="content"
+    fxLayout="column"
+    fxLayout.gt-sm="row"
+    fxLayoutGap="2.5em"
+    fxLayoutGap.gt-sm="9em"
+  >
+    <img class="flag" [src]="country?.flag" />
+    <div class="details">
+      <h1 class="details__name">{{ country?.name }}</h1>
+      <div
+        fxLayout="column"
+        fxLayoutGap="2.5em"
+        fxLayout.gt-md="row"
+        fxLayoutGap.gt-md="9em"
+      >
+        <div class="details__col-1">
+          <p><strong>Native Name: </strong> {{ country?.nativeName }}</p>
+          <p><strong>Population: </strong> {{ country?.population }}</p>
+          <p><strong>Region: </strong> {{ country?.region }}</p>
+          <p><strong>Sub Region: </strong> {{ country?.subregion }}</p>
+          <p><strong>Capital: </strong> {{ country?.capital }}</p>
+        </div>
+        <div class="details__col-2">
+          <p>
+            <strong>Top Level Domain: </strong> {{ country?.topLevelDomain }}
+          </p>
+          <p>
+            <strong>Currencies: </strong>
 
-    <span *ngFor="let currency of country?.currencies; let i = index">
-      {{ currency.name }}
-      <span *ngIf="i < country.currencies.length - 1">,</span>
-    </span>
-  </p>
-  <p>
-    <strong>Languages: </strong>
-    <span *ngFor="let language of country?.languages; let i = index">
-      {{ language.name }}
-      <span *ngIf="i < country.languages.length - 1">,</span>
-    </span>
-  </p>
+            <span *ngFor="let currency of country?.currencies; let i = index">
+              {{ currency.name }}
+              <span *ngIf="i < country.currencies.length - 1">,</span>
+            </span>
+          </p>
+          <p>
+            <strong>Languages: </strong>
+            <span *ngFor="let language of country?.languages; let i = index">
+              {{ language.name }}
+              <span *ngIf="i < country.languages.length - 1">,</span>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="border-countres">
+        <p><strong>Border Countries</strong>{{ country?.borders }}</p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="border-countres">
-  <p><strong>Border Countries</strong>{{ country?.borders }}</p>
-</div>
-<button mat-raised-button color="primary" [routerLink]="['/home']">
-  <-back
-</button>
-
-<h2>{{ country | json }}</h2>

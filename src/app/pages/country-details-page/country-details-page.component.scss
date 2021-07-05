@@ -1,9 +1,9 @@
 :host {
   display: flex;
   justify-content: center;
+  margin: 0 16px;
 }
 .container {
-  margin: 0 16px;
   width: 100%;
   max-width: 1200px;
 }
@@ -20,4 +20,10 @@
 
 .border-countres {
   margin-top: 2em;
+}
+
+.details {
+  &__name {
+    margin-top: 1em;
+  }
 }

@@ -12,6 +12,7 @@ export class CountryDetailsPageComponent implements OnInit {
   sub!: Subscription;
   errorMessage: string = '';
   country!: ICountry;
+  borderCountrys!: ICountry[];
 
   constructor(
     private countriesApiService: CountriesApiService,

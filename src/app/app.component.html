@@ -6,7 +6,9 @@
       <mat-icon aria-hidden="false" aria-label="Example home icon">
         {{ isDarkTheme ? "dark_mode" : "light_mode" }}
       </mat-icon>
-      {{ isDarkTheme ? "Dark" : "Light" }} Mode
+      <span fxShow.gt-xs fxHide>
+        {{ isDarkTheme ? "Dark" : "Light" }} Mode
+      </span>
     </button>
   </div>
 </mat-toolbar>

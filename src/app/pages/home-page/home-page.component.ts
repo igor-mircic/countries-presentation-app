@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ICountry } from 'src/app/country';
 import { CountriesApiService } from 'src/app/services/countries-api.service';
@@ -13,6 +13,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   errorMessage: string = '';
   countries: ICountry[] = [];
   filteredCountries: ICountry[] = [];
+  gotCountries: boolean = false;
 
   constructor(private countriesApiService: CountriesApiService) {}
 
@@ -21,6 +22,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       next: (countries) => {
         this.countries = countries;
         this.filteredCountries = countries;
+        this.gotCountries = true;
       },
       error: (err) => (this.errorMessage = err),
     });

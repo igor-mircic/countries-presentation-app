@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="filters" fxLayout="row" fxLayout.xs="column" fxLayoutGap="auto">
+  <div class="filters" fxLayout="row" fxLayout.xs="column">
     <app-country-name-filter
+      fxFlex
       (nameChangedEvent)="updateName($event)"
     ></app-country-name-filter>
     <app-country-region-filter
@@ -16,6 +17,21 @@
     fxLayoutGap.md="50px grid"
     fxLayoutGap.lg="70px grid"
   >
+    <div
+      class="spiner-wraper"
+      fxFlex
+      fxLayoutAlign="space-around center"
+      *ngIf="!this.gotCountries"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+    <div
+      fxFlex
+      fxLayoutAlign="space-around center"
+      *ngIf="this.filteredCountries.length === 0 && this.gotCountries"
+    >
+      <h1>No Countries Found</h1>
+    </div>
     <div
       class="card-grid__item"
       fxFlex.xs="100%"

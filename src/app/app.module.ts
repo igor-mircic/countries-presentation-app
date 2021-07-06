@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CountryDetailsPageComponent } from './pages/country-details-page/country-details-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { CountryNameFilterComponent } from './components/country-filters/country-name-filter/country-name-filter.component';
 import { CountryRegionFilterComponent } from './components/country-filters/country-region-filter/country-region-filter.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
+import { MaterialModule } from './modules/material.module';
 
 @NgModule({
   declarations: [

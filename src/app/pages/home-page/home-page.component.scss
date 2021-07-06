@@ -16,3 +16,14 @@
 .spiner-wraper {
   height: 50vh;
 }
+
+.card-grid {
+  overflow: hidden;
+  &__item {
+    padding: 0 3em;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

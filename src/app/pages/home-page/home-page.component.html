@@ -8,42 +8,44 @@
       (regionChangedEvent)="updateRegion($event)"
     ></app-country-region-filter>
   </div>
-  <div
-    class="card-grid"
-    fxLayout.xs="column"
-    fxLayout="row wrap"
-    fxLayoutGap.xs="30px"
-    fxLayoutGap.sm="30px grid"
-    fxLayoutGap.md="50px grid"
-    fxLayoutGap.lg="70px grid"
-  >
+  <div class="overflow-hidden">
     <div
-      class="spiner-wraper"
-      fxFlex
-      fxLayoutAlign="space-around center"
-      *ngIf="!this.gotCountries"
+      class="card-grid"
+      fxLayout.xs="column"
+      fxLayout="row wrap"
+      fxLayoutGap.xs="50px"
+      fxLayoutGap.sm="50px grid"
+      fxLayoutGap.md="50px grid"
+      fxLayoutGap.lg="70px grid"
     >
-      <mat-spinner></mat-spinner>
-    </div>
-    <div
-      fxFlex
-      fxLayoutAlign="space-around center"
-      *ngIf="this.filteredCountries.length === 0 && this.gotCountries"
-    >
-      <h1>No Countries Found</h1>
-    </div>
-    <div
-      class="card-grid__item"
-      fxFlex.xs="100%"
-      fxFlex.sm="50%"
-      fxFlex.md="33%"
-      fxFlex.lg="25%"
-      *ngFor="let country of this.filteredCountries"
-    >
-      <app-country-card
-        [country]="country"
-        [routerLink]="['/details', country.name]"
-      ></app-country-card>
+      <div
+        class="spiner-wraper"
+        fxFlex
+        fxLayoutAlign="space-around center"
+        *ngIf="!this.gotCountries"
+      >
+        <mat-spinner></mat-spinner>
+      </div>
+      <div
+        fxFlex
+        fxLayoutAlign="space-around center"
+        *ngIf="this.filteredCountries.length === 0 && this.gotCountries"
+      >
+        <h1>No Countries Found</h1>
+      </div>
+      <div
+        class="card-grid__item"
+        fxFlex.xs="100%"
+        fxFlex.sm="50%"
+        fxFlex.md="33%"
+        fxFlex.lg="25%"
+        *ngFor="let country of this.filteredCountries"
+      >
+        <app-country-card
+          [country]="country"
+          [routerLink]="['/details', country.name]"
+        ></app-country-card>
+      </div>
     </div>
   </div>
 </div>

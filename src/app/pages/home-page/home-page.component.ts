@@ -1,7 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ICountry } from 'src/app/country';
-import { CountriesApiService } from 'src/app/shared/countries-api.service';
+import { CountriesApiService } from 'src/app/services/countries-api.service';
 
 @Component({
   selector: 'app-home-page',

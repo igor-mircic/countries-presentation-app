@@ -16,7 +16,8 @@
       fxLayoutGap.xs="50px"
       fxLayoutGap.sm="50px grid"
       fxLayoutGap.md="50px grid"
-      fxLayoutGap.lg="70px grid"
+      fxLayoutGap.lg="90px grid"
+      fxLayoutAlign="space-around center"
     >
       <div
         class="spiner-wraper"
@@ -39,6 +40,7 @@
         fxFlex.sm="50%"
         fxFlex.md="33%"
         fxFlex.lg="25%"
+        fxLayoutAlign="space-around center"
         *ngFor="let country of this.filteredCountries"
       >
         <app-country-card

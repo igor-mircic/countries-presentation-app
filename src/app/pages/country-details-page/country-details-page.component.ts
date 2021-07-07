@@ -14,6 +14,7 @@ export class CountryDetailsPageComponent implements OnInit {
   errorMessage: string = '';
   country!: ICountry;
   borderCountries!: ICountry[];
+  gotCountries: boolean = false;
 
   constructor(
     private countriesApiService: CountriesApiService,
@@ -35,6 +36,7 @@ export class CountryDetailsPageComponent implements OnInit {
         next: (country) => {
           this.country = country[0];
           this.getBorderCountries(country[0]);
+          this.gotCountries = true;
         },
         error: (err) => (this.errorMessage = err),
       });

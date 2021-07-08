@@ -10,7 +10,7 @@ import { ICountry } from '../country';
 export class CountriesApiService {
   private baseUrl = 'https://restcountries.eu/rest/v2/';
   private requestFields =
-    'fields=name;nativeName;population;region;subregion;capital;flag;topLevelDomain;currencies;languages;borders;';
+    'fields=name;nativeName;population;region;subregion;capital;flag;topLevelDomain;currencies;languages;borders;alpha3Code';
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +21,18 @@ export class CountriesApiService {
 
   getCountryByName(name: string): Observable<ICountry[]> {
     const url = this.baseUrl + 'name/' + name + '?fullText=true';
-    return this.http.get<ICountry[]>(url).pipe(catchError(this.handleError));
+    return this.http.get<ICountry[]>(url).pipe(
+      // tap((data) => console.log('CountryByName: ', data)),
+      catchError(this.handleError)
+    );
+  }
+
+  getCountryByCode(code: string): Observable<ICountry> {
+    const url = this.baseUrl + 'alpha/' + code;
+    return this.http.get<ICountry>(url).pipe(
+      // tap((data) => console.log('APICountryByCode: ', data)),
+      catchError(this.handleError)
+    );
   }
 
   getCountriesByCode(codes: string): Observable<ICountry[]> {

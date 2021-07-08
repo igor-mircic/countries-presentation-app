@@ -14,6 +14,7 @@ export class CountryDetailsPageComponent implements OnInit {
   errorMessage: string = '';
   country!: ICountry;
   borderCountries!: ICountry[];
+  hasBorderCountries!: boolean;
   gotCountries: boolean = false;
 
   constructor(
@@ -22,21 +23,20 @@ export class CountryDetailsPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let contryName!: string;
+    let contryCode!: string;
     this.route.params.subscribe((params) => {
-      contryName = params?.name;
+      contryCode = params?.name;
       const country: ICountry | undefined = this.borderCountries?.find(
-        (c) => c.name == contryName
+        (c) => c.name == contryCode
       );
       if (country !== undefined) this.changeCountry(country);
     });
     this.countrySub = this.countriesApiService
-      .getCountryByName(contryName)
+      .getCountryByCode(contryCode)
       .subscribe({
         next: (country) => {
-          this.country = country[0];
-          this.getBorderCountries(country[0]);
-          this.gotCountries = true;
+          this.country = country;
+          this.getBorderCountries(country);
         },
         error: (err) => (this.errorMessage = err),
       });
@@ -48,17 +48,31 @@ export class CountryDetailsPageComponent implements OnInit {
   }
 
   getBorderCountries(country: ICountry) {
-    const codes = country.borders.join(';');
-    this.borderSub = this.countriesApiService
-      .getCountriesByCode(codes)
-      .subscribe({
-        next: (country) => (this.borderCountries = country),
-        error: (err) => (this.errorMessage = err),
-      });
+    if (country.borders.length !== 0) {
+      this.hasBorderCountries = true;
+      const codes = country.borders.join(';');
+      console.log(country.borders);
+      this.borderSub = this.countriesApiService
+        .getCountriesByCode(codes)
+        .subscribe({
+          next: (country) => {
+            this.borderCountries = country;
+            this.gotCountries = true;
+          },
+          error: (err) => (this.errorMessage = err),
+        });
+    } else {
+      this.hasBorderCountries = false;
+      this.gotCountries = true;
+    }
   }
 
   ngOnDestroy(): void {
-    this.countrySub.unsubscribe();
-    this.borderSub.unsubscribe();
+    if (this.countrySub) {
+      this.countrySub.unsubscribe();
+    }
+    if (this.borderSub) {
+      this.borderSub.unsubscribe();
+    }
   }
 }

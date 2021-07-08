@@ -1,4 +1,5 @@
 export interface ICountry {
+  alpha3Code: string;
   name: string;
   nativeName: string;
   population: number;

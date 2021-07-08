@@ -1,3 +1,5 @@
+@import "src/styles/utils";
+
 :host {
   display: flex;
   justify-content: center;
@@ -8,6 +10,10 @@
   max-width: 1200px;
 }
 
+button {
+  box-shadow: $bs-soft;
+}
+
 .back-button {
   display: block;
   margin: 4em 0;
@@ -16,6 +22,7 @@
 .flag__container {
   max-width: 500px;
   & img {
+    box-shadow: $bs-soft;
     width: 100%;
   }
 }

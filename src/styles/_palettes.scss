@@ -129,7 +129,7 @@ $light-background-palette: (
 );
 
 $light-foreground-palette: (
-  base: black,
+  base: map.get($grey-palette, 100),
   divider: $dark-dividers,
   dividers: $dark-dividers,
   disabled: $dark-disabled-text,
@@ -154,7 +154,7 @@ $dark-background-palette: (
   card: map.get($blue-grey-palette, 500),
   dialog: map.get($blue-grey-palette, 800),
   disabled-button: rgba(white, 0.12),
-  raised-button: map.get($blue-grey-palette, 800),
+  raised-button: map.get($blue-grey-palette, 500),
   focused-button: $light-focused,
   selected-button: map.get($blue-grey-palette, 900),
   selected-disabled-button: map.get($blue-grey-palette, 800),

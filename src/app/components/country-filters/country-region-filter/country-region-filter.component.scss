@@ -1,3 +1,7 @@
+@import "src/styles/utils";
+
 mat-form-field {
   width: 165px;
+  height: 45px;
+  box-shadow: $bs-soft;
 }

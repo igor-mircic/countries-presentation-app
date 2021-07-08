@@ -1,4 +1,3 @@
-// import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
@@ -17,28 +16,17 @@ export class CountriesApiService {
 
   getAllCountries(): Observable<ICountry[]> {
     const url = this.baseUrl + 'all?' + this.requestFields;
-    return this.http.get<ICountry[]>(url).pipe(
-      // tap((data) => console.log('All', data)),
-      catchError(this.handleError)
-    );
+    return this.http.get<ICountry[]>(url).pipe(catchError(this.handleError));
   }
 
   getCountryByName(name: string): Observable<ICountry[]> {
     const url = this.baseUrl + 'name/' + name + '?fullText=true';
-    // console.log(url);
-    return this.http.get<ICountry[]>(url).pipe(
-      // tap((data) => console.log('CountryByName: ', data)),
-      catchError(this.handleError)
-    );
+    return this.http.get<ICountry[]>(url).pipe(catchError(this.handleError));
   }
 
   getCountriesByCode(codes: string): Observable<ICountry[]> {
     const url = this.baseUrl + 'alpha?codes=' + codes;
-    // console.log(url);
-    return this.http.get<ICountry[]>(url).pipe(
-      // tap((data) => console.log('getCountriesByCode', data)),
-      catchError(this.handleError)
-    );
+    return this.http.get<ICountry[]>(url).pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse): Observable<never> {

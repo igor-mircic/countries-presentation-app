@@ -13,9 +13,11 @@
   margin: 4em 0;
 }
 
-.flag {
-  width: 100%;
-  max-width: 450px;
+.flag__container {
+  max-width: 500px;
+  & img {
+    width: 100%;
+  }
 }
 
 .border-countres {
@@ -34,4 +36,8 @@
 
 .spiner-wraper {
   height: 30vh;
+}
+
+.border-countres {
+  max-width: 500px;
 }

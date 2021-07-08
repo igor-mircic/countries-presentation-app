@@ -3,7 +3,7 @@
     <mat-icon aria-hidden="false" aria-label="Back button">arrow_back</mat-icon>
     Back
   </button>
-  <div>
+  <div fxLayoutAlign.lt-lg="space-around center">
     <div
       class="spiner-wraper"
       fxFlex
@@ -16,17 +16,19 @@
       class="content"
       fxLayout="column"
       fxLayout.gt-sm="row"
-      fxLayoutGap="2.5em"
-      fxLayoutGap.gt-sm="9em"
+      fxLayoutGap="4em"
+      fxLayoutGap.gt-md="9em"
       *ngIf="this.gotCountries"
     >
-      <img class="flag" [src]="country?.flag" />
+      <div class="flag__container">
+        <img class="flag" [src]="country?.flag" />
+      </div>
       <div class="details">
         <h2 class="details__name">{{ country?.name }}</h2>
         <div
           fxLayout="column"
-          fxLayoutGap="2.5em"
-          fxLayout.gt-md="row"
+          fxLayoutGap="4em"
+          fxLayout.gt-sm="row"
           fxLayoutGap.gt-md="9em"
         >
           <div class="details__col-1">

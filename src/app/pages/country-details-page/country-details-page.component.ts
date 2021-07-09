@@ -51,7 +51,6 @@ export class CountryDetailsPageComponent implements OnInit {
     if (country.borders.length !== 0) {
       this.hasBorderCountries = true;
       const codes = country.borders.join(';');
-      console.log(country.borders);
       this.borderSub = this.countriesApiService
         .getCountriesByCode(codes)
         .subscribe({

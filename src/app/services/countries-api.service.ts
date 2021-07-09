@@ -21,18 +21,12 @@ export class CountriesApiService {
 
   getCountryByName(name: string): Observable<ICountry[]> {
     const url = this.baseUrl + 'name/' + name + '?fullText=true';
-    return this.http.get<ICountry[]>(url).pipe(
-      // tap((data) => console.log('CountryByName: ', data)),
-      catchError(this.handleError)
-    );
+    return this.http.get<ICountry[]>(url).pipe(catchError(this.handleError));
   }
 
   getCountryByCode(code: string): Observable<ICountry> {
     const url = this.baseUrl + 'alpha/' + code;
-    return this.http.get<ICountry>(url).pipe(
-      // tap((data) => console.log('APICountryByCode: ', data)),
-      catchError(this.handleError)
-    );
+    return this.http.get<ICountry>(url).pipe(catchError(this.handleError));
   }
 
   getCountriesByCode(codes: string): Observable<ICountry[]> {

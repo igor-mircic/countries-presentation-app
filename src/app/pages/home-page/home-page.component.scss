@@ -10,7 +10,10 @@
   }
 }
 .filters {
-  margin: 4em 0 4.5em 0;
+  margin: 2em 1rem 4.5em 1rem;
+  @media screen and (min-width: 600px) {
+    margin: 4em 0 4.5em 0;
+  }
 }
 
 .spiner-wraper {

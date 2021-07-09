@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="filters" fxLayout="row" fxLayout.xs="column">
+  <div class="filters" fxLayout="row" fxLayout.xs="column" fxLayoutGap="3rem">
     <app-country-name-filter
       fxFlex
       (nameChangedEvent)="updateName($event)"
@@ -17,7 +17,6 @@
       fxLayoutGap.sm="50px grid"
       fxLayoutGap.md="50px grid"
       fxLayoutGap.lg="70px grid"
-      fxLayoutAlign="space-around center"
     >
       <div
         class="spiner-wraper"

@@ -1,12 +1,14 @@
 <mat-toolbar>
   <div class="toolbar-content">
-    <span>{{ title }}</span>
+    <span class="title">{{ title }}</span>
     <span class="spacer"></span>
     <button mat-button (click)="toggleIsDark()">
       <mat-icon aria-hidden="false" aria-label="dark/light mode">
         dark_mode
       </mat-icon>
-      <span> {{ isDarkTheme ? "Dark" : "Light" }} Mode </span>
+      <span class="button-text">
+        {{ isDarkTheme ? "Dark" : "Light" }} Mode
+      </span>
     </button>
   </div>
 </mat-toolbar>

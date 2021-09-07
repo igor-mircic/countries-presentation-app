@@ -1,6 +1,6 @@
 # Countrie Presentation App
 
-# Live preview:
+Live preview:
 https://countries-presentation-app.netlify.app
 
 # Projekat koristi:

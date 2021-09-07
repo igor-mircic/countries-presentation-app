@@ -3,7 +3,7 @@
 Live preview:
 https://countries-presentation-app.netlify.app
 
-# Projekat koristi:
+Projekat koristi:
 
 - Angular v12.0.5
 - Node v14.17.1

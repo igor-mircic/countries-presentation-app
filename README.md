@@ -1,5 +1,8 @@
 # Countrie Presentation App
 
+Live preview:
+https://countries-presentation-app.netlify.app
+
 Projekat koristi:
 
 - Angular v12.0.5
